@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
     
 int main(int argc, char *argv[])
 {
@@ -9,7 +10,7 @@ int main(int argc, char *argv[])
     }
     
     char *filepath = argv[1];
-    printf("hmm, file is getting parsed.");
+    printf("hmm, file is getting parsed.\n");
     
     FILE *file = fopen(filepath, "r");
     if(file == NULL)
@@ -18,9 +19,32 @@ int main(int argc, char *argv[])
         return 1;
     }
     
+    char line[512];
+    
+    int successful_login = 0;
+    int failed_login = 0;
+    
+    while (fgets(line, sizeof(line), file))
+    {
+        if(strstr(line, "Accepted password"))
+        {
+            successful_login++;
+        }
+        else if(strstr(line, "Failed password"))
+        {
+            failed_login++;
+        }
+    }
+    
     
     
     
     fclose(file);
+    
+    printf("====AUTH LOG SUMMARY====\n");
+    printf("Successful logins: %d\n", successful_login);
+    printf("Failed logins    : %d\n", failed_login);
+    
+    
     return 0;
 }

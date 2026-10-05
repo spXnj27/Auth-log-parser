@@ -10,3 +10,6 @@ After reading a few articles on file reading in C, now I can write code to read 
 
 # Day 2-4
 Majority of the task is done. Now, my code atleast reads file and makes a table. I still need to add the "event type" thing to complete the core features. 
+
+# Day idk, but yeah about a week passed. 
+Done and dusted, implemented everything that I could. Learned alot fs. Thank you EHAX for this project.
